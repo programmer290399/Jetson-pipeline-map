@@ -92,7 +92,7 @@ the video stream from the analogue source is then converted to a RTSP stream by 
 
 * The above mentioned chip had no data sheets available also sourcing it was next to impossible. Some google-fu revealed that there was another chip which accomplished similar goals named [`ADV7403`](https://www.analog.com/en/products/adv7403.html).
 
-* However the process of designing a carrier board for [`ADV7403`](https://www.analog.com/en/products/adv7403.html) is still pending. However, I am unsure that this a good solution. I also ordered the chip and it can be obtained from codenscious.ai's inventory.
+* However the process of designing a carrier board for [`ADV7403`](https://www.analog.com/en/products/adv7403.html) is still pending. Although, I am unsure that this a good solution. I also ordered the chip and it can be obtained from codenscious.ai's inventory.
 
 * There were other prebuilt solutions too but they were too costly, you can find them [here](http://www.sensoray.com/products/4023.htm).
 
