@@ -103,3 +103,67 @@ the video stream from the analogue source is then converted to a RTSP stream by 
 
 ### DeepStream App:
 <hr></hr>
+
+#### Status:
+* Currently we're using the `deepstream-test5` app which ships with the DeepStream SDK. 
+* Also currently we're using [**DeepStream SDK v4.0.1**](https://developer.nvidia.com/embedded/deepstream-on-jetson-downloads-archived) and **JetPack 4.2.2**.
+* Both of them are installed properly on the JetsonNano available in codenscious.ai's inventory. Thus you need to **SKIP Step 1 & 2** in the instructions below if you're using the same device.
+* The image which is flashed on JetsonNano is **r32.2** version.
+
+#### Setup Procedure:
+
+- **STEP 1:** Download the required Packages on Jetson Nano.
+
+    >NOTE: You would need to create a Nvidia account in order to access the download page.
+
+    - Go to this [link](https://developer.nvidia.com/embedded/deepstream-on-jetson-downloads-archived) and click the `Download .tar` button (image shown below).
+    ![](data/downloadSDK.png?raw=true)
+    - Wait for the download to complete , it may take several minutes depending upon your network speed. Upon completion you must be able to spot the file named `"deepstream_sdk_v4.0.1_jetson.tbz2"` in your Downloads folder or wherever you saved it.
+
+
+- **STEP 2:** Installing DeepStream SDK on Jetson Nano
+
+    - Open the terminal on your Jetson Nano (`Ctrl`+`Alt`+`T`) and run the following commands:
+
+        ```
+        $ sudo apt install \
+            libssl1.0.0 \
+            libgstreamer1.0-0 \
+            gstreamer1.0-tools \
+            gstreamer1.0-plugins-good \
+            gstreamer1.0-plugins-bad \
+            gstreamer1.0-plugins-ugly \
+            gstreamer1.0-libav \
+            libgstrtspserver-1.0-0 \
+            libjansson4=2.11-1
+        $ sudo apt-get install librdkafka1=0.11.3-1build1
+        $ sudo apt-get install libgstrtspserver-1.0-0
+        $ sudo apt-get install libgstreamer-plugins-base1.0-dev  
+        ```
+
+    - Navigate to the location where our `"deepstream_sdk_v4.0.1_jetson.tbz2"` is located and run the following commands:
+
+        ```
+        $ tar -xpvf deepstream_sdk_v4.0.1_jetson.tbz2
+        $ cd deepstream_sdk_v4.0.1_jetson
+        $ sudo tar -xvpf binaries.tbz2 -C /
+        $ sudo ./install.sh
+        ```
+
+    - Following command should return the DeepStream version if your install was successful
+
+        ```
+        $ deepstream-app -v 
+        ```
+
+- **STEP 3:** Getting the App up and running
+    > NOTE:  
+    - Navigate to the `deepstream-test5` app directory which is located at:
+    ```
+    deepstream_sdk_v4.0.1_jetson/sources/apps/sample_apps/deepstream-test5
+    ```
+    - Install the required packages by running the following commands:
+    ```
+    sudo apt-get install libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev \
+    libgstrtspserver-1.0-dev libx11-dev
+    ```
